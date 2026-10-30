@@ -3,9 +3,9 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public float minSize = 0.5f;
-    public float maxSize = 4.0f;
-    public float minSpeed = 100f;
-    public float maxSpeed = 300f;
+    public float maxSize = 1.5f;
+    public float minSpeed = 50f;
+    public float maxSpeed = 150f;
     public float maxSpinSpeed = 10f;
     Rigidbody2D rb;
 
