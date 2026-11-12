@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     public float maxSpeed = 150f;
     public float maxSpinSpeed = 10f;
     Rigidbody2D rb;
+    public GameObject bounceEffectPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +24,7 @@ public class Obstacle : MonoBehaviour
 
         float randomTorque = Random.Range(-maxSpinSpeed, maxSpinSpeed);
         rb.AddTorque(randomTorque);
+
     }
 
     // Update is called once per frame
