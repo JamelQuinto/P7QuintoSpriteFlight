@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     public GameObject boosterFlame;
     private float elapsedTime = 0f;
     private float score = 0f;
+    private float highScore = 0f;
     public float scoreMultiplier = 10f;
     public UIDocument uiDocument;
     private Label scoreText;
+    private Label highScoreText;
     public GameObject explosionEffect;
     private Button restartButton;
 
@@ -25,6 +27,8 @@ public class PlayerController : MonoBehaviour
         restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
         restartButton.style.display = DisplayStyle.None;
         restartButton.clicked += ReloadScene;
+        highScoreText = uiDocument.rootVisualElement.Q<Label>("HighScore");
+        highScoreText.style.display = DisplayStyle.None;
     }
 
     // Update is called once per frame
@@ -40,6 +44,12 @@ public class PlayerController : MonoBehaviour
         score = Mathf.FloorToInt(elapsedTime * scoreMultiplier);
         Debug.Log("Score: " + score);
         scoreText.text = "Score: " + score;
+
+        if (score > highScore)
+        {
+            highScore = score;
+            highScoreText.text = "High Score: " + highScore;
+        }
     }
 
     void MovePlayer()
@@ -76,6 +86,8 @@ public class PlayerController : MonoBehaviour
         Instantiate(explosionEffect, transform.position, transform.rotation);
         restartButton.style.display = DisplayStyle.Flex;
         Destroy(gameObject);
+
+        highScoreText.style.display = DisplayStyle.Flex;
     }
 
     void ReloadScene()

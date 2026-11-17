@@ -27,12 +27,6 @@ public class Obstacle : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 contactPoint = collision.GetContact(0).point;
@@ -41,4 +35,11 @@ public class Obstacle : MonoBehaviour
         // Destroy the effect after 1 second
         Destroy(bounceEffect, 1f);
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
 }
