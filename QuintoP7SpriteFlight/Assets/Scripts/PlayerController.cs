@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     private Label highScoreText;
     public GameObject explosionEffect;
     private Button restartButton;
+    public GameObject borderParent;
+    public InputAction moveForward;
+    public InputAction lookPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +32,9 @@ public class PlayerController : MonoBehaviour
         restartButton.clicked += ReloadScene;
         highScoreText = uiDocument.rootVisualElement.Q<Label>("HighScore");
         highScoreText.style.display = DisplayStyle.None;
+
+        moveForward.Enable();
+        lookPosition.Enable();
     }
 
     // Update is called once per frame
@@ -54,10 +60,10 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (Mouse.current.leftButton.isPressed)
+        if (moveForward.IsPressed())
         {
             //Calculate mouse position
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(lookPosition.ReadValue<Vector2>());
             Vector2 direction = (mousePos - transform.position).normalized;
 
             //Move player in direction of mouse
@@ -71,11 +77,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (moveForward.WasPressedThisFrame())
         {
             boosterFlame.SetActive(true);
         }
-        else if (Mouse.current.leftButton.wasReleasedThisFrame)
+        else if (moveForward.WasReleasedThisFrame())
         {
             boosterFlame.SetActive(false);
         }
@@ -86,6 +92,7 @@ public class PlayerController : MonoBehaviour
         Instantiate(explosionEffect, transform.position, transform.rotation);
         restartButton.style.display = DisplayStyle.Flex;
         Destroy(gameObject);
+        borderParent.SetActive(false);
 
         highScoreText.style.display = DisplayStyle.Flex;
     }
