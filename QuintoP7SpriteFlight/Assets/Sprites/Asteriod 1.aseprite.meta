@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2aeb51ef73b8ee45a47e8d4dc9b4996
+guid: a264b4e7175d8bb409f75638c3068dda
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Asteriod 1
+  - name: Asteriod 4
     originalName: 
     pivot: {x: 0.43076926, y: -0.16129032}
     alignment: 9
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 65
       height: 62
-    spriteID: 9669d0cf1ff6a66408260053bf389d37
+    spriteID: 8fbce8cedc8d2d34aab04315965d7713
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,12 +153,12 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3124886168
+      value0: 3884401055
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Asteriod 1
+    name: Asteriod 4
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 10
         width: 65
         height: 62
-      spriteId: 9669d0cf1ff6a66408260053bf389d37
+      spriteId: 8fbce8cedc8d2d34aab04315965d7713
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
